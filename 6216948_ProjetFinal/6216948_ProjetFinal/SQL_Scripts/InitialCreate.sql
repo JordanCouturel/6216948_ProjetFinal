@@ -2,7 +2,14 @@
 Use master
 go
 
-CREATE DATABASE TP1_BD_6216948
+if exists(select * from sys.databases where name="TP1_BD_6216948")
+BEGIN
+	DROP DATABASE TP1_BD_6216948
+end
+Create database TP1_BD_6216948
+
+
+
 GO
 USE TP1_BD_6216948
 GO

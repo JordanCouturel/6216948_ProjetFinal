@@ -1,11 +1,15 @@
 
 -- Création du schéma pour les spécialistes
+GO
 CREATE SCHEMA [SpecialisteSchema]
 GO
 -- Création du schéma pour les joueurs
+GO
 CREATE schema [JoueurSchema];
 GO
 
+GO
+USE TP1_BD_6216948
 
 -- Création de la table Spécialiste
 CREATE TABLE SpecialisteSchema.Specialiste (
