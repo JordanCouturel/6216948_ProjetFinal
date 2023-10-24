@@ -17,6 +17,7 @@ namespace _6216948_ProjetFinal.Data
         {
         }
 
+        public virtual DbSet<Changelog> Changelogs { get; set; } = null!;
         public virtual DbSet<Equipe> Equipes { get; set; } = null!;
         public virtual DbSet<EquipeSpecialiste> EquipeSpecialistes { get; set; } = null!;
         public virtual DbSet<Joueur> Joueurs { get; set; } = null!;
@@ -24,6 +25,7 @@ namespace _6216948_ProjetFinal.Data
         public virtual DbSet<Specialiste> Specialistes { get; set; } = null!;
         public virtual DbSet<Statistique> Statistiques { get; set; } = null!;
         public virtual DbSet<TypeStat> TypeStats { get; set; } = null!;
+        public virtual DbSet<VwStatistiquesEquipe> VwStatistiquesEquipes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,6 +37,11 @@ namespace _6216948_ProjetFinal.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Changelog>(entity =>
+            {
+                entity.Property(e => e.InstalledOn).HasDefaultValueSql("(getdate())");
+            });
+
             modelBuilder.Entity<Equipe>(entity =>
             {
                 entity.Property(e => e.EquipeId).ValueGeneratedNever();
@@ -49,12 +56,12 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Equipe)
                     .WithMany(p => p.EquipeSpecialistes)
                     .HasForeignKey(d => d.EquipeId)
-                    .HasConstraintName("FK__EquipeSpe__Equip__3F466844");
+                    .HasConstraintName("FK__EquipeSpe__Equip__300424B4");
 
                 entity.HasOne(d => d.Specialiste)
                     .WithMany(p => p.EquipeSpecialistes)
                     .HasForeignKey(d => d.SpecialisteId)
-                    .HasConstraintName("FK__EquipeSpe__Speci__403A8C7D");
+                    .HasConstraintName("FK__EquipeSpe__Speci__30F848ED");
             });
 
             modelBuilder.Entity<Joueur>(entity =>
@@ -64,20 +71,20 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Equipe)
                     .WithMany(p => p.Joueurs)
                     .HasForeignKey(d => d.EquipeId)
-                    .HasConstraintName("FK__Joueur__EquipeID__440B1D61");
+                    .HasConstraintName("FK__Joueur__EquipeID__34C8D9D1");
             });
 
             modelBuilder.Entity<NumeroTelephone>(entity =>
             {
                 entity.HasKey(e => e.NumeroId)
-                    .HasName("PK__NumeroTe__C664E5EE666963FB");
+                    .HasName("PK__NumeroTe__C664E5EE17D02BF0");
 
                 entity.Property(e => e.NumeroId).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Specialiste)
                     .WithMany(p => p.NumeroTelephones)
                     .HasForeignKey(d => d.SpecialisteId)
-                    .HasConstraintName("FK__NumeroTel__Speci__398D8EEE");
+                    .HasConstraintName("FK__NumeroTel__Speci__2A4B4B5E");
             });
 
             modelBuilder.Entity<Specialiste>(entity =>
@@ -88,11 +95,11 @@ namespace _6216948_ProjetFinal.Data
                     .WithMany(p => p.Specialistes)
                     .UsingEntity<Dictionary<string, object>>(
                         "SpecialisteEquipe",
-                        l => l.HasOne<Equipe>().WithMany().HasForeignKey("EquipeId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Equip__52593CB8"),
-                        r => r.HasOne<Specialiste>().WithMany().HasForeignKey("SpecialisteId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Speci__5165187F"),
+                        l => l.HasOne<Equipe>().WithMany().HasForeignKey("EquipeId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Equip__4316F928"),
+                        r => r.HasOne<Specialiste>().WithMany().HasForeignKey("SpecialisteId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Speci__4222D4EF"),
                         j =>
                         {
-                            j.HasKey("SpecialisteId", "EquipeId").HasName("PK__Speciali__769F390DD2540A29");
+                            j.HasKey("SpecialisteId", "EquipeId").HasName("PK__Speciali__769F390D2DACF69E");
 
                             j.ToTable("SpecialisteEquipe", "SpecialisteSchema");
 
@@ -109,22 +116,22 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Joueur)
                     .WithMany(p => p.Statistiques)
                     .HasForeignKey(d => d.JoueurId)
-                    .HasConstraintName("FK__Statistiq__Joueu__49C3F6B7");
+                    .HasConstraintName("FK__Statistiq__Joueu__3A81B327");
 
                 entity.HasOne(d => d.TypeStat)
                     .WithMany(p => p.Statistiques)
                     .HasForeignKey(d => d.TypeStatId)
-                    .HasConstraintName("FK__Statistiq__TypeS__4AB81AF0");
+                    .HasConstraintName("FK__Statistiq__TypeS__3B75D760");
 
                 entity.HasMany(d => d.TypeStats)
                     .WithMany(p => p.StatistiquesNavigation)
                     .UsingEntity<Dictionary<string, object>>(
                         "StatistiqueTypeStat",
-                        l => l.HasOne<TypeStat>().WithMany().HasForeignKey("TypeStatId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__TypeS__4E88ABD4"),
-                        r => r.HasOne<Statistique>().WithMany().HasForeignKey("StatistiqueId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__Stati__4D94879B"),
+                        l => l.HasOne<TypeStat>().WithMany().HasForeignKey("TypeStatId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__TypeS__3F466844"),
+                        r => r.HasOne<Statistique>().WithMany().HasForeignKey("StatistiqueId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__Stati__3E52440B"),
                         j =>
                         {
-                            j.HasKey("StatistiqueId", "TypeStatId").HasName("PK__Statisti__7329ED96DF083AC1");
+                            j.HasKey("StatistiqueId", "TypeStatId").HasName("PK__Statisti__7329ED96AECB89AD");
 
                             j.ToTable("StatistiqueTypeStat", "JoueurSchema");
 
@@ -137,6 +144,11 @@ namespace _6216948_ProjetFinal.Data
             modelBuilder.Entity<TypeStat>(entity =>
             {
                 entity.Property(e => e.TypeStatId).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<VwStatistiquesEquipe>(entity =>
+            {
+                entity.ToView("VwStatistiquesEquipe", "JoueurSchema");
             });
 
             OnModelCreatingPartial(modelBuilder);

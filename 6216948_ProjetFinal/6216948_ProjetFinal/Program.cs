@@ -1,7 +1,17 @@
+
+using _6216948_ProjetFinal.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddDbContext<TP1_BD_6216948Context>(Options =>
+Options.UseSqlServer(builder.Configuration.GetConnectionString("TP1_BD_6216948")));
 
 var app = builder.Build();
 
