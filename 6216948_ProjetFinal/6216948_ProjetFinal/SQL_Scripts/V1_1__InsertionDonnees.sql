@@ -5,14 +5,14 @@ INSERT INTO SpecialisteSchema.Equipe (EquipeID,Nom, Ville)
 VALUES
     (1,'Penguins', 'Pittsburgh'),
     (2,'Capitals', 'Washington'),
-    (3,'Canadiens', 'Montréal');
+    (3,'Canadiens', 'Montreal');
 INSERT INTO SpecialisteSchema.Equipe (EquipeID,Nom, Ville)
 VALUES
 
 
-    (4,'Red Wings', 'Détroit'),
+    (4,'Red Wings', 'Detroit'),
     (5,'Stars', 'Dallas'),
-    (6,'Sharks', 'San José');
+    (6,'Sharks', 'San Jose');
 
 
 
@@ -20,96 +20,96 @@ VALUES
 INSERT INTO JoueurSchema.Joueur (JoueurID, NomComplet, Age, Position, DateDeNaissance, EquipeID)
 VALUES
     (1, 'John Doe', 25, 'Attaquant', '1998-03-12', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (2, 'Jane Smith', 27, 'Défenseur', '1996-05-20', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (2, 'Jane Smith', 27, 'Defenseur', '1996-05-20', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (3, 'Mike Johnson', 22, 'Attaquant',  '2001-01-08', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (4, 'Sara Lee', 24, 'Gardien de but',  '1999-09-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (5, 'Robert Brown', 28, 'Défenseur', '1995-07-03', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (5, 'Robert Brown', 28, 'Defenseur', '1995-07-03', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (6, 'Emily White', 23, 'Attaquant',  '2000-11-21', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (7, 'Daniel Martin', 25, 'Attaquant',  '1998-04-30', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (8, 'Lisa Anderson', 26, 'Défenseur',  '1997-08-10', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (8, 'Lisa Anderson', 26, 'Defenseur',  '1997-08-10', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (9, 'Michael Brown', 23, 'Attaquant', '2000-12-05', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (10, 'Sophia Taylor', 29, 'Gardien de but',  '1994-02-18', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (11, 'William Johnson', 27, 'Défenseur',  '1996-06-25', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (11, 'William Johnson', 27, 'Defenseur',  '1996-06-25', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (12, 'Olivia Lee', 24, 'Attaquant', '1999-10-11', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (13, 'James Smith', 30, 'Attaquant',  '1993-01-28', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (14, 'Emma Brown', 26, 'Défenseur', '1997-07-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (14, 'Emma Brown', 26, 'Defenseur', '1997-07-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (15, 'Liam White', 23, 'Attaquant', '2000-09-02', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (16, 'Mia Martin', 28, 'Gardien de but', '1995-03-17', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (17, 'Benjamin Johnson', 25, 'Défenseur', '1998-05-30', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (17, 'Benjamin Johnson', 25, 'Defenseur', '1998-05-30', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (18, 'Ava Lee', 22, 'Attaquant',  '2001-03-12', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (19, 'Ethan Smith', 29, 'Attaquant',  '1994-08-22', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (20, 'Oliver Taylor', 24, 'Défenseur', '1999-11-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins'));
+    (20, 'Oliver Taylor', 24, 'Defenseur', '1999-11-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins'));
 	-- Insertion de 20 enregistrements de joueurs répartis dans les équipes avec ID auto-incrémenté
 INSERT INTO JoueurSchema.Joueur (JoueurID,NomComplet, Age, Position,  DateDeNaissance, EquipeID)
 VALUES
     (21, 'Sophie Turner', 24, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (22, 'Noah Wilson', 28, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (22, 'Noah Wilson', 28, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (23, 'Isabella Brown', 25, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (24, 'Liam Smith', 26, 'Gardien de but',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (25, 'Olivia Martinez', 23, 'Défenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (25, 'Olivia Martinez', 23, 'Defenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (26, 'Lucas Martin', 30, 'Attaquant', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (27, 'Ava Davis', 22, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (28, 'Ethan Wilson', 25, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (28, 'Ethan Wilson', 25, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (29, 'Emma Thomas', 27, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (30, 'Mia Garcia', 23, 'Gardien de but', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (31, 'Benjamin Davis', 28, 'Défenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (31, 'Benjamin Davis', 28, 'Defenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (32, 'Luna Rodriguez', 24, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (33, 'Daniel Wilson', 26, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (34, 'Avery Brown', 29, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
+    (34, 'Avery Brown', 29, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
     (35, 'Mason Martin', 23, 'Attaquant', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
     (36, 'Charlotte Lee', 25, 'Gardien de but',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Capitals')),
-    (37, 'Henry Garcia', 27, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
+    (37, 'Henry Garcia', 27, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (38, 'Sophia Anderson', 24, 'Attaquant', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Canadiens')),
     (39, 'William Smith', 28, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins')),
-    (40, 'Emily Thomas', 26, 'Défenseur', null, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins'));
+    (40, 'Emily Thomas', 26, 'Defenseur', null, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Penguins'));
 
 	-- Insertion de 20 enregistrements de joueurs avec ID auto-incrémenté à partir de 41 et des dates de naissance NULL pour certains d'entre eux
 INSERT INTO JoueurSchema.Joueur (JoueurID, NomComplet, Age, Position, DateDeNaissance, EquipeID)
 VALUES
     (41, 'Liam Turner', 25, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
-    (42, 'Olivia Wilson', 26, 'Défenseur',  '1997-04-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
+    (42, 'Olivia Wilson', 26, 'Defenseur',  '1997-04-15', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
     (43, 'Ella Davis', 23, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
     (44, 'Noah Smith', 28, 'Gardien de but',  '1994-08-30', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
-    (45, 'Ava Martin', 22, 'Défenseur',  '1999-01-22', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
+    (45, 'Ava Martin', 22, 'Defenseur',  '1999-01-22', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
     (46, 'Lucas Brown', 24, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks')),
     (47, 'Sophia Garcia', 27, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks')),
     (48, 'Mia Davis', 26, 'Gardien de but',  '1997-06-10', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks')),
-    (49, 'Ethan Wilson', 28, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
+    (49, 'Ethan Wilson', 28, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
     (50, 'Isabella Smith', 25, 'Attaquant',  '1996-03-18', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
     (51, 'Benjamin Martinez', 24, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
-    (52, 'Luna Turner', 30, 'Défenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
+    (52, 'Luna Turner', 30, 'Defenseur',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
     (53, 'Jackson Garcia', 29, 'Attaquant',  '1994-12-28', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks')),
     (54, 'Emma Davis', 22, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks')),
     (55, 'Mason Martin', 23, 'Gardien de but', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
-    (56, 'Sophia Smith', 28, 'Défenseur',  '1995-07-05', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
+    (56, 'Sophia Smith', 28, 'Defenseur',  '1995-07-05', (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
     (57, 'Lucas Davis', 26, 'Attaquant', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Stars')),
-    (58, 'Chloe Martin', 27, 'Défenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
+    (58, 'Chloe Martin', 27, 'Defenseur', NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
     (59, 'Lily Turner', 23, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Red Wings')),
     (60, 'Ella Smith', 24, 'Attaquant',  NULL, (SELECT EquipeID FROM SpecialisteSchema.Equipe WHERE Nom = 'Sharks'));
 
 	-- Insertion de 20 enregistrements de spécialistes avec ID auto-incrémenté à partir de 1
 INSERT INTO SpecialisteSchema.Specialiste (SpecialisteID, Nom, Prenom, AdresseNumeroPorte, AdresseRue, AdresseVille, AdresseCodePostal, AdressePays, Specialite)
 VALUES
-    (1, 'Smith', 'John', '123', 'Main Street', 'New York', '10001', 'États-Unis', 'Cardiologue'),
-    (2, 'Johnson', 'Emily', '456', 'Oak Avenue', 'Los Angeles', '90001', 'États-Unis', 'Dermatologue'),
-    (3, 'Williams', 'Sophia', '789', 'Elm Road', 'Chicago', '60601', 'États-Unis', 'Gynécologue'),
-    (4, 'Brown', 'Michael', '101', 'Cedar Lane', 'Houston', '77001', 'États-Unis', 'Pédiatre'),
-    (5, 'Davis', 'Olivia', '222', 'Maple Street', 'Miami', '33101', 'États-Unis', 'Chirurgien orthopédiste'),
-    (6, 'Martinez', 'Ethan', '333', 'Pine Road', 'San Francisco', '94101', 'États-Unis', 'Neurologue'),
-    (7, 'Garcia', 'Ava', '444', 'Birch Avenue', 'Dallas', '75201', 'États-Unis', 'Ophtalmologue'),
-    (8, 'Jones', 'Noah', '555', 'Cypress Lane', 'Seattle', '98101', 'États-Unis', 'Psychiatre'),
-    (9, 'Taylor', 'Sophie', '666', 'Sycamore Street', 'Boston', '02201', 'États-Unis', 'Chirurgien plasticien'),
-    (10, 'Lee', 'Jackson', '777', 'Chestnut Road', 'Atlanta', '30301', 'États-Unis', 'Radiologue'),
-    (11, 'Turner', 'Ella', '888', 'Walnut Avenue', 'Phoenix', '85001', 'États-Unis', 'Chirurgien cardiothoracique'),
-    (12, 'Harris', 'Liam', '999', 'Cherry Lane', 'Denver', '80201', 'États-Unis', 'Urologue'),
-    (13, 'Clark', 'Chloe', '111', 'Palm Street', 'San Diego', '92101', 'États-Unis', 'Dentiste'),
-    (14, 'Lewis', 'Lucas', '222', 'Beech Road', 'Las Vegas', '89101', 'États-Unis', 'Chirurgien général'),
-    (15, 'Hall', 'Avery', '333', 'Willow Lane', 'Orlando', '32801', 'États-Unis', 'Gastro-entérologue'),
-    (16, 'Moore', 'Ella', '444', 'Pine Lane', 'Nashville', '37201', 'États-Unis', 'Oncologue'),
-    (17, 'Scott', 'Liam', '555', 'Cedar Road', 'New Orleans', '70101', 'États-Unis', 'Pneumologue'),
-    (18, 'Young', 'Mia', '666', 'Maple Avenue', 'Minneapolis', '55401', 'États-Unis', 'Rhumatologue'),
-    (19, 'Walker', 'Oliver', '777', 'Elm Lane', 'San Antonio', '78201', 'États-Unis', 'Néphrologue'),
-    (20, 'King', 'Emma', '888', 'Oak Road', 'Philadelphia', '19101', 'États-Unis', 'Endocrinologue');
+    (1, 'Smith', 'John', '123', 'Main Street', 'New York', '10001', 'Etats-Unis', 'Cardiologue'),
+    (2, 'Johnson', 'Emily', '456', 'Oak Avenue', 'Los Angeles', '90001', 'Etats-Unis', 'Dermatologue'),
+    (3, 'Williams', 'Sophia', '789', 'Elm Road', 'Chicago', '60601', 'Etats-Unis', 'GynEcologue'),
+    (4, 'Brown', 'Michael', '101', 'Cedar Lane', 'Houston', '77001', 'Etats-Unis', 'PEdiatre'),
+    (5, 'Davis', 'Olivia', '222', 'Maple Street', 'Miami', '33101', 'Etats-Unis', 'Chirurgien orthopEdiste'),
+    (6, 'Martinez', 'Ethan', '333', 'Pine Road', 'San Francisco', '94101', 'Etats-Unis', 'Neurologue'),
+    (7, 'Garcia', 'Ava', '444', 'Birch Avenue', 'Dallas', '75201', 'Etats-Unis', 'Ophtalmologue'),
+    (8, 'Jones', 'Noah', '555', 'Cypress Lane', 'Seattle', '98101', 'Etats-Unis', 'Psychiatre'),
+    (9, 'Taylor', 'Sophie', '666', 'Sycamore Street', 'Boston', '02201', 'Etats-Unis', 'Chirurgien plasticien'),
+    (10, 'Lee', 'Jackson', '777', 'Chestnut Road', 'Atlanta', '30301', 'Etats-Unis', 'Radiologue'),
+    (11, 'Turner', 'Ella', '888', 'Walnut Avenue', 'Phoenix', '85001', 'Etats-Unis', 'Chirurgien cardiothoracique'),
+    (12, 'Harris', 'Liam', '999', 'Cherry Lane', 'Denver', '80201', 'Etats-Unis', 'Urologue'),
+    (13, 'Clark', 'Chloe', '111', 'Palm Street', 'San Diego', '92101', 'Etats-Unis', 'Dentiste'),
+    (14, 'Lewis', 'Lucas', '222', 'Beech Road', 'Las Vegas', '89101', 'Etats-Unis', 'Chirurgien general'),
+    (15, 'Hall', 'Avery', '333', 'Willow Lane', 'Orlando', '32801', 'Etats-Unis', 'Gastro-enterologue'),
+    (16, 'Moore', 'Ella', '444', 'Pine Lane', 'Nashville', '37201', 'Etats-Unis', 'Oncologue'),
+    (17, 'Scott', 'Liam', '555', 'Cedar Road', 'New Orleans', '70101', 'Etats-Unis', 'Pneumologue'),
+    (18, 'Young', 'Mia', '666', 'Maple Avenue', 'Minneapolis', '55401', 'Etats-Unis', 'Rhumatologue'),
+    (19, 'Walker', 'Oliver', '777', 'Elm Lane', 'San Antonio', '78201', 'Etats-Unis', 'Nephrologue'),
+    (20, 'King', 'Emma', '888', 'Oak Road', 'Philadelphia', '19101', 'Etats-Unis', 'Endocrinologue');
 
 
 	-- Insertion de 14 numéros de téléphone avec des ID manuels
