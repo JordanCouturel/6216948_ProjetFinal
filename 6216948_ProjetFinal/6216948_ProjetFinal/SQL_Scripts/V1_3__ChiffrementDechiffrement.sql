@@ -1,22 +1,14 @@
-﻿
-go
+﻿go
 use TP1_BD_6216948
 go
 
-create master key encryption by PASSWORD='P4ssword!';
+create master key encryption by PASSWORD='P4ssword1998!!!!!!';
 
 create certificate MonCertificat with subject='Chiffrement';
 
 
-select * from sys.certificates
-
 
 create symmetric key MaSuperCleChiffrement with algorithm= AES_256 ENCRYPTION BY CERTIFICATE MonCertificat;
-
-select* from sys.symmetric_keys;
-
-
-
 
 
 
@@ -37,10 +29,10 @@ BEGIN
 END
 
 
-execute dbo.USP_DecryptAdresseNumeroPorte
+
 
 -- Decryption
-create PROCEDURE dbo.DecryptAdresseNumeroPorte
+create PROCEDURE dbo.USP_DecryptAdresseNumeroPorte
 AS
 BEGIN
     -- Use the symmetric key to decrypt the column AdresseNumeroPorteCryptee
@@ -51,7 +43,7 @@ BEGIN
 
     -- Decrypt AdresseNumeroPorteCryptee and store it in AdresseNumeroPorte
     UPDATE SpecialisteSchema.Specialiste
-    SET @DecryptedData = CAST(DECRYPTBYKEY(AdresseNumeroPorteCryptee) AS INT),
+    SET @DecryptedData = CAST(DECRYPTBYKEY(AdresseNumeroPorteCryptee) AS NVARCHAR(MAX)),
         AdresseNumeroPorte = @DecryptedData;
 
     -- Clear the contents of AdresseNumeroPorteCryptee
@@ -64,3 +56,5 @@ BEGIN
 
 END
 
+
+execute dbo.USP_EncryptAdresseNumeroPorte

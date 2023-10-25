@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
 
 namespace _6216948_ProjetFinal.Models
@@ -25,6 +26,7 @@ namespace _6216948_ProjetFinal.Models
         [Unicode(false)]
         public string? Position { get; set; }
         [Column(TypeName = "date")]
+        [ValidateNever]
         public DateTime? DateDeNaissance { get; set; }
         [Column("EquipeID")]
         public int? EquipeId { get; set; }
