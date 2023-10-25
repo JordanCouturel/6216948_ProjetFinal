@@ -118,4 +118,5 @@ CREATE TABLE SpecialisteSchema.SpecialisteEquipe (
 ALTER TABLE JoueurSchema.Joueur
 ADD FOREIGN KEY (EquipeID) REFERENCES SpecialisteSchema.Equipe(EquipeID);
 
-
+alter table SpecialisteSchema.Specialiste
+add AdresseNumeroPorteCryptee NVARCHAR(MAX);
