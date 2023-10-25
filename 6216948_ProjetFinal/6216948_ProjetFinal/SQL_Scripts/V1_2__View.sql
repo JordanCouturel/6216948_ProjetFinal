@@ -1,5 +1,5 @@
 go
-use TP1_BD_6216948
+use TP1_BD_6216948;
 go
 
 CREATE VIEW JoueurSchema.VwStatistiquesEquipe AS
@@ -12,5 +12,5 @@ SELECT
 FROM
     JoueurSchema.Joueur AS J
 INNER JOIN
-    JoueurSchema.Statistique AS S ON J.JoueurID = S.JoueurID;
+    JoueurSchema.Statistique AS S ON J.JoueurID = S.JoueurID
 

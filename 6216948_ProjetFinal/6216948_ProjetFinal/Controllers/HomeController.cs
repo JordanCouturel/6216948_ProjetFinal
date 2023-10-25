@@ -11,12 +11,12 @@ namespace _6216948_ProjetFinal.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+
         public TP1_BD_6216948Context _BD_6216948Context { get; set; }
 
-        public HomeController(ILogger<HomeController> logger, TP1_BD_6216948Context dbcontext)
+        public HomeController(TP1_BD_6216948Context dbcontext)
         {
-            _logger = logger;
+         
             _BD_6216948Context = dbcontext;
         }
 
@@ -43,8 +43,9 @@ namespace _6216948_ProjetFinal.Controllers
         public async Task<IActionResult> EquipeDetails(int id)
         {
 
+          
 
-            Equipe? equipe=await _BD_6216948Context.Equipes.FindAsync(id);
+            Equipe? equipe = await _BD_6216948Context.Equipes.FindAsync(id);
 
             string query = "execute USP_GetTeamDetails @EquipeID";
 
@@ -56,9 +57,12 @@ namespace _6216948_ProjetFinal.Controllers
             EquipeDetailsVM equipeDetailsVM = new EquipeDetailsVM
             {
                 Equipe = equipe,
-                Joueurs = await _BD_6216948Context.Joueurs.FromSqlRaw(query, parameters.ToArray()).ToListAsync(),
-
+                JoueursList = await _BD_6216948Context.Joueurs.FromSqlRaw(query, parameters.ToArray()).ToListAsync(),
             };
+        
+        
+           
+          
 
 
             return View(equipeDetailsVM);

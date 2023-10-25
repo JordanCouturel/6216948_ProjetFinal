@@ -28,7 +28,8 @@ namespace _6216948_ProjetFinal.Models
         [Column(TypeName = "date")]
         [ValidateNever]
         public DateTime? DateDeNaissance { get; set; }
-        [Column("EquipeID")]
+        [Column("EquipeId")]
+        [ValidateNever]
         public int? EquipeId { get; set; }
 
         [ForeignKey("EquipeId")]
