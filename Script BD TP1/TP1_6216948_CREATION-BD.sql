@@ -20,7 +20,7 @@ CREATE TABLE SpecialisteSchema.Specialiste (
     SpecialisteID INT PRIMARY KEY,
     Nom VARCHAR(50) NOT NULL,
     Prenom VARCHAR(50) NOT NULL,
-    AdresseNumeroPorte INT,
+    AdresseNumeroPorte nvarchar(max),
     AdresseRue VARCHAR(100),
     AdresseVille VARCHAR(100),
     AdresseCodePostal VARCHAR(10),

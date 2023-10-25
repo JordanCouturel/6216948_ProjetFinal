@@ -1,0 +1,46 @@
+﻿@using _6216948_ProjetFinal.ViewModels
+@model EquipeDetailsVM
+
+
+<h1>Les détails de l'équipe des @Model.Equipe.Nom de @Model.Equipe.Ville</h1>
+<div class="row">
+
+
+    <div class="col-12">
+        <h2>Les joueurs</h2>
+        <table>
+            <tr>
+                <th>Nom du joueur</th>
+                <th>Age</th>
+                <th>Position</th>
+                <th>Date de naissance</th>
+            </tr>
+            @foreach (Joueur joueur in Model.Joueurs)
+            {
+                <tr>
+                    <td>@joueur.NomComplet</td>
+                    <td>@joueur.Age</td>
+                    <td>@joueur.Position</td>
+                    <td>@joueur.DateDeNaissance</td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+
+ 
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+

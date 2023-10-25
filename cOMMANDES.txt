@@ -1,0 +1,4 @@
+evolve migrate sqlserver -c "Server=.\SQLEXPRESS;Initial Catalog=TP1_BD_6216948;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False" --target-version 1.8
+
+
+dotnet ef dbcontext scaffold Name=TP1_BD_6216948 Microsoft.EntityFrameworkCore.SqlServer -o Models --context-dir Data --data-annotations
