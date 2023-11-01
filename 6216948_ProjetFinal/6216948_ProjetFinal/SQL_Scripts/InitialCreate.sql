@@ -2,7 +2,7 @@
 Use master
 go
 
-if exists(select * from sys.databases where name="TP1_BD_6216948")
+if exists(select * from sys.databases where name='TP1_BD_6216948')
 BEGIN
 	DROP DATABASE TP1_BD_6216948
 end
