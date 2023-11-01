@@ -9,6 +9,11 @@ CREATE schema [JoueurSchema];
 GO
 
 GO
+CREATE SCHEMA [ImageSchema];
+go
+
+
+GO
 USE TP1_BD_6216948
 
 -- Création de la table Spécialiste

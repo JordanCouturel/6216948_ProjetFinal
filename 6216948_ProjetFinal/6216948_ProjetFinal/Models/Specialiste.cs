@@ -22,7 +22,6 @@ namespace _6216948_ProjetFinal.Models
         public int SpecialisteId { get; set; }
         [StringLength(50)]
         [Unicode(false)]
-        [Column("Nom du specialiste")]
         public string Nom { get; set; } = null!;
         [StringLength(50)]
         [Unicode(false)]
@@ -43,6 +42,7 @@ namespace _6216948_ProjetFinal.Models
         [StringLength(100)]
         [Unicode(false)]
         public string? Specialite { get; set; }
+        public string? AdresseNumeroPorteCryptee { get; set; }
 
         [InverseProperty("Specialiste")]
         public virtual ICollection<EquipeSpecialiste> EquipeSpecialistes { get; set; }

@@ -20,6 +20,7 @@ namespace _6216948_ProjetFinal.Data
         public virtual DbSet<Changelog> Changelogs { get; set; } = null!;
         public virtual DbSet<Equipe> Equipes { get; set; } = null!;
         public virtual DbSet<EquipeSpecialiste> EquipeSpecialistes { get; set; } = null!;
+        public virtual DbSet<Image> Images { get; set; } = null!;
         public virtual DbSet<Joueur> Joueurs { get; set; } = null!;
         public virtual DbSet<NumeroTelephone> NumeroTelephones { get; set; } = null!;
         public virtual DbSet<Specialiste> Specialistes { get; set; } = null!;
@@ -56,12 +57,17 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Equipe)
                     .WithMany(p => p.EquipeSpecialistes)
                     .HasForeignKey(d => d.EquipeId)
-                    .HasConstraintName("FK__EquipeSpe__Equip__300424B4");
+                    .HasConstraintName("FK__EquipeSpe__Equip__4222D4EF");
 
                 entity.HasOne(d => d.Specialiste)
                     .WithMany(p => p.EquipeSpecialistes)
                     .HasForeignKey(d => d.SpecialisteId)
-                    .HasConstraintName("FK__EquipeSpe__Speci__30F848ED");
+                    .HasConstraintName("FK__EquipeSpe__Speci__4316F928");
+            });
+
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.Property(e => e.Identifiant).HasDefaultValueSql("(newid())");
             });
 
             modelBuilder.Entity<Joueur>(entity =>
@@ -71,20 +77,20 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Equipe)
                     .WithMany(p => p.Joueurs)
                     .HasForeignKey(d => d.EquipeId)
-                    .HasConstraintName("FK__Joueur__EquipeID__34C8D9D1");
+                    .HasConstraintName("FK__Joueur__EquipeID__46E78A0C");
             });
 
             modelBuilder.Entity<NumeroTelephone>(entity =>
             {
                 entity.HasKey(e => e.NumeroId)
-                    .HasName("PK__NumeroTe__C664E5EE17D02BF0");
+                    .HasName("PK__NumeroTe__C664E5EE07DC1A2B");
 
                 entity.Property(e => e.NumeroId).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Specialiste)
                     .WithMany(p => p.NumeroTelephones)
                     .HasForeignKey(d => d.SpecialisteId)
-                    .HasConstraintName("FK__NumeroTel__Speci__2A4B4B5E");
+                    .HasConstraintName("FK__NumeroTel__Speci__3C69FB99");
             });
 
             modelBuilder.Entity<Specialiste>(entity =>
@@ -95,11 +101,11 @@ namespace _6216948_ProjetFinal.Data
                     .WithMany(p => p.Specialistes)
                     .UsingEntity<Dictionary<string, object>>(
                         "SpecialisteEquipe",
-                        l => l.HasOne<Equipe>().WithMany().HasForeignKey("EquipeId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Equip__4316F928"),
-                        r => r.HasOne<Specialiste>().WithMany().HasForeignKey("SpecialisteId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Speci__4222D4EF"),
+                        l => l.HasOne<Equipe>().WithMany().HasForeignKey("EquipeId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Equip__5535A963"),
+                        r => r.HasOne<Specialiste>().WithMany().HasForeignKey("SpecialisteId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Specialis__Speci__5441852A"),
                         j =>
                         {
-                            j.HasKey("SpecialisteId", "EquipeId").HasName("PK__Speciali__769F390D2DACF69E");
+                            j.HasKey("SpecialisteId", "EquipeId").HasName("PK__Speciali__769F390DEF1D83E6");
 
                             j.ToTable("SpecialisteEquipe", "SpecialisteSchema");
 
@@ -116,22 +122,22 @@ namespace _6216948_ProjetFinal.Data
                 entity.HasOne(d => d.Joueur)
                     .WithMany(p => p.Statistiques)
                     .HasForeignKey(d => d.JoueurId)
-                    .HasConstraintName("FK__Statistiq__Joueu__3A81B327");
+                    .HasConstraintName("FK__Statistiq__Joueu__4CA06362");
 
                 entity.HasOne(d => d.TypeStat)
                     .WithMany(p => p.Statistiques)
                     .HasForeignKey(d => d.TypeStatId)
-                    .HasConstraintName("FK__Statistiq__TypeS__3B75D760");
+                    .HasConstraintName("FK__Statistiq__TypeS__4D94879B");
 
                 entity.HasMany(d => d.TypeStats)
                     .WithMany(p => p.StatistiquesNavigation)
                     .UsingEntity<Dictionary<string, object>>(
                         "StatistiqueTypeStat",
-                        l => l.HasOne<TypeStat>().WithMany().HasForeignKey("TypeStatId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__TypeS__3F466844"),
-                        r => r.HasOne<Statistique>().WithMany().HasForeignKey("StatistiqueId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__Stati__3E52440B"),
+                        l => l.HasOne<TypeStat>().WithMany().HasForeignKey("TypeStatId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__TypeS__5165187F"),
+                        r => r.HasOne<Statistique>().WithMany().HasForeignKey("StatistiqueId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Statistiq__Stati__5070F446"),
                         j =>
                         {
-                            j.HasKey("StatistiqueId", "TypeStatId").HasName("PK__Statisti__7329ED96AECB89AD");
+                            j.HasKey("StatistiqueId", "TypeStatId").HasName("PK__Statisti__7329ED967941F4EE");
 
                             j.ToTable("StatistiqueTypeStat", "JoueurSchema");
 

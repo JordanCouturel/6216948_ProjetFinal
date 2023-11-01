@@ -9,7 +9,6 @@ namespace _6216948_ProjetFinal.Models
     [Keyless]
     public partial class VwStatistiquesEquipe
     {
-        [Key]
         [Column("JoueurID")]
         public int JoueurId { get; set; }
         [StringLength(100)]
