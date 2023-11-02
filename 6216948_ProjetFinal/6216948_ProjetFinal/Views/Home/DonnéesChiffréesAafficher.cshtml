@@ -1,0 +1,77 @@
+﻿@model IEnumerable<_6216948_ProjetFinal.Models.Specialiste>
+
+@{
+    ViewData["Title"] = "DonnéesChiffréesAafficher";
+}
+
+<h1>Données chiffrées à afficher</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresseNumeroPorte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresseRue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresseVille)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresseCodePostal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdressePays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresseNumeroPorteCryptee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td style="" >
+                    <mark style="background-color: yellow; color: black;"> @Html.DisplayFor(modelItem => item.AdresseNumeroPorte)</mark>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresseRue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresseVille)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresseCodePostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdressePays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdresseNumeroPorteCryptee)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
