@@ -61,12 +61,26 @@ namespace _6216948_ProjetFinal.Controllers
             };
         
         
-           
-          
-
-
             return View(equipeDetailsVM);
 
+
+        }
+
+
+        public async Task<ActionResult> DonnéesChiffréesAafficher()
+        {
+
+            //decrypter les données qui sont encryptés dans la bd
+            _BD_6216948Context.Database.ExecuteSqlRaw("EXEC dbo.USP_DecryptAdresseNumeroPorte");
+
+            //stocker les données déchiffrées dans la BD
+            var decryptedData = await _BD_6216948Context.Specialistes.ToListAsync();
+
+            //encrypter les données avant des les retourner dans la BD
+            _BD_6216948Context.Database.ExecuteSqlRaw("EXEC dbo.USP_EncryptAdresseNumeroPorte");
+
+            return View(decryptedData);
+           
         }
 
 

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ImageViewModel>;
+
+    ﻿
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+               Identifiant
+            </th>
+            <th>
+                Image
+            </th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.image.Nom
+                </td>
+                <td>
+                 
+                    @item.image.Identifiant
+                </td>
+                <td>
+                    -
+                    <img alt="@(item.image.Nom)" src="@(item.ImageUrl)" />
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>

@@ -16,6 +16,6 @@ namespace _6216948_ProjetFinal.Models
         [StringLength(100)]
         public string Nom { get; set; } = null!;
         public Guid Identifiant { get; set; }
-        public byte[]? FichierImage { get; set; }
+        public byte[] FichierImage { get; set; }
     }
 }
