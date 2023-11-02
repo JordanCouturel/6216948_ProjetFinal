@@ -1,45 +1,54 @@
 ﻿@using _6216948_ProjetFinal.ViewModels
-
-
-
 @model EquipeDetailsVM
 
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-<h1>Les détails de l'équipe des @Model.Equipe.Nom de @Model.Equipe.Ville</h1>
-<div class="row">
+    <div class="container">
+        <h1 class="my-4 text-center">
+            Les détails de l'équipe des @Model.Equipe.Nom de @Model.Equipe.Ville
+        </h1>
 
-
-    <div class="col-12">
-        <h2>Les joueurs</h2>
-        <table>
-            <tr>
-                <th>Nom du joueur</th>
-                <th>Age</th>
-                <th>Position</th>
-                <th>Date de naissance</th>
-            </tr>
-            @foreach (Joueur joueur in Model.JoueursList)
-            {
-                <tr>
-                    <td>@joueur.NomComplet</td>
-                    <td>@joueur.Age</td>
-                    <td>@joueur.Position</td>
-                    <td>@joueur.DateDeNaissance</td>
-                </tr>
-            }
-
-
-        </table>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2>Les joueurs</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Nom du joueur</th>
+                                    <th>Age</th>
+                                    <th>Position</th>
+                                    <th>Date de naissance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Joueur joueur in Model.JoueursList)
+                                {
+                                    <tr>
+                                        <td>@joueur.NomComplet</td>
+                                        <td>@joueur.Age</td>
+                                        <td>@joueur.Position</td>
+                                        <td>@joueur.DateDeNaissance</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
- 
-
-
-
-
-</div>
-
-
+</body>
+</html>
 
 
 

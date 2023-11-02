@@ -4,36 +4,28 @@
     ViewData["Title"] = "GetEquipes";
 }
 
-<h1>Les équipes</h1>
+<div class="container my-5">
+    <h1 class="text-center">Les équipes</h1>
 
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ville)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ville)
-            </td>
-            <td>
-             
-                    <a asp-controller="Home" asp-action="EquipeDetails" asp-route-id="@item.EquipeId">Details</a>
-
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nom)</th>
+                <th>@Html.DisplayNameFor(model => model.Ville)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ville)</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Home" asp-action="EquipeDetails" asp-route-id="@item.EquipeId">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
