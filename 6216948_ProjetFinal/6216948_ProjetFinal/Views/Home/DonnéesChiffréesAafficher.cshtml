@@ -1,77 +1,78 @@
 ﻿@model IEnumerable<_6216948_ProjetFinal.Models.Specialiste>
 
-@{
-    ViewData["Title"] = "DonnéesChiffréesAafficher";
-}
+<div class="container my-5">
+    <h1 class="text-center">Données chiffrées à afficher</h1>
 
-<h1>Données chiffrées à afficher</h1>
+    <style>
+        /* Ajoutez ici vos styles CSS personnalisés */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
+            .table th, .table td {
+                padding: 8px;
+                text-align: left;
+            }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prenom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdresseNumeroPorte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdresseRue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdresseVille)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdresseCodePostal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdressePays)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Specialite)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdresseNumeroPorteCryptee)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenom)
-            </td>
-            <td style="" >
-                    <mark style="background-color: yellow; color: black;"> @Html.DisplayFor(modelItem => item.AdresseNumeroPorte)</mark>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdresseRue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdresseVille)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdresseCodePostal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdressePays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdresseNumeroPorteCryptee)
-            </td>
-           
-        </tr>
-}
-    </tbody>
-</table>
+            .table thead {
+                background-color: #343a40; /* Couleur de fond de l'en-tête */
+                color: #fff; /* Couleur du texte de l'en-tête */
+            }
+
+            .table th {
+                font-weight: bold;
+            }
+
+            .table tbody tr:nth-child(odd) {
+                background-color: #f8f9fa; /* Couleur de fond des lignes impaires */
+            }
+
+            .table tbody tr:nth-child(even) {
+                background-color: #e9ecef; /* Couleur de fond des lignes paires */
+            }
+
+        /* Style pour la zone surlignée */
+        mark {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse Numéro Porte</th>
+                    <th>Adresse Rue</th>
+                    <th>Adresse Ville</th>
+                    <th>Code Postal</th>
+                    <th>Adresse Pays</th>
+                    <th>Spécialité</th>
+                    <th>Adresse Numéro Porte Cryptée</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Prenom)</td>
+                        <td>
+                            <mark>@Html.DisplayFor(modelItem => item.AdresseNumeroPorte)</mark>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresseRue)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresseVille)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresseCodePostal)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdressePays)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Specialite)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresseNumeroPorteCryptee)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

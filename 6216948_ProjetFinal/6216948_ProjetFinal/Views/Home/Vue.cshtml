@@ -1,22 +1,27 @@
 ﻿@model List<VwStatistiquesEquipe>
 
-<table>
-    <tr>
-        <th>JoueurId</th>
-        <th>Nom</th>
-        <th>EquipeId</th>
-        <th>Nom de la statistique</th>
-        <th >Valeur de la statistique</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.JoueurId</td>
-            <td>@item.NomDuJoueur</td>
-            <td>@item.EquipeId</td>
-            <td>@item.NomStatistique</td>
-            <td>@item.ValeurStatistique</td>
-        </tr>
-    }
-</table>
+<div class="container">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>JoueurId</th>
+                <th>Nom</th>
+                <th>EquipeId</th>
+                <th>Nom de la statistique</th>
+                <th>Valeur de la statistique</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.JoueurId</td>
+                    <td>@item.NomDuJoueur</td>
+                    <td>@item.EquipeId</td>
+                    <td>@item.NomStatistique</td>
+                    <td>@item.ValeurStatistique</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

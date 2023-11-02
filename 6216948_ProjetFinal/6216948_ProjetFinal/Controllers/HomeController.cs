@@ -84,33 +84,6 @@ namespace _6216948_ProjetFinal.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public IActionResult Privacy()
         {
             return View();
