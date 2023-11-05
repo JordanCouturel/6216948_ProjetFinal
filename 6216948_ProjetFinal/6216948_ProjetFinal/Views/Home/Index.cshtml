@@ -2,25 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-    /* Ajoutez ici vos styles CSS personnalisés */
-    .custom-btn {
-        font-size: 18px;
-        margin: 15px 0; /* Ajout de marges verticales pour les boutons */
-    }
-
-        .custom-btn a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-    .btn-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-</style>
-
 <div class="container my-5">
     <h1>Bienvenue sur la Page d'Accueil</h1>
 
@@ -28,35 +9,35 @@
         <div class="col-md-6">
             <div class="btn-container">
                 <h3>Présentation de la vue</h3>
-                <a class="btn btn-primary custom-btn" asp-controller="home" asp-action="Vue">La vue</a>
+                <button type="button"  onclick="window.location.href='@Url.Action("Vue", "Home")'">La vue</button>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="btn-container">
                 <h3>Les équipes</h3>
-                <a class="btn btn-success custom-btn" asp-controller="home" asp-action="GetEquipes">Les équipes</a>
+                <button type="button"  onclick="window.location.href='@Url.Action("GetEquipes", "Home")'">Les équipes</button>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="btn-container">
                 <h3>Données que je déchiffre avant d'afficher (AdresseNumeroPorte)</h3>
-                <a class="btn btn-info custom-btn" asp-controller="home" asp-action="DonnéesChiffréesAafficher">Voir les données</a>
+                <button type="button"  onclick="window.location.href='@Url.Action("DonnéesChiffréesAafficher", "Home")'">Voir les données</button>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div a class="btn-container">
+            <div class="btn-container">
                 <h3>Liste des images</h3>
-                <a class="btn btn-warning custom-btn" asp-controller="images" asp-action="index">Voir les images</a>
+                <button type="button"  onclick="window.location.href='@Url.Action("index", "images")'">Voir les images</button>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="btn-container">
                 <h3>Créer/importer une image</h3>
-                <a class="btn btn-danger custom-btn" asp-controller="images" asp-action="create">Créer une image</a>
+                <button type="button"  onclick="window.location.href='@Url.Action("create", "images")'">Créer une image</button>
             </div>
         </div>
     </div>
